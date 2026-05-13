@@ -1,188 +1,57 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>무료배송 쇼핑몰</title>
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:sans-serif;
-    }
+<meta charset="UTF-8">
+<title>AB Test</title>
 
-    body{
-      background:#f7f7f7;
-      color:#222;
-    }
+<style>
+  body{
+    font-family:sans-serif;
+    text-align:center;
+    padding-top:100px;
+  }
 
-    header{
-      background:black;
-      color:white;
-      padding:20px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
+  .banner{
+    font-size:50px;
+    font-weight:bold;
+  }
 
-    .logo{
-      font-size:28px;
-      font-weight:bold;
-    }
-
-    nav a{
-      color:white;
-      text-decoration:none;
-      margin-left:20px;
-    }
-
-    .hero{
-      height:400px;
-      background:url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200') center/cover;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      flex-direction:column;
-      color:white;
-      text-align:center;
-    }
-
-    .hero h1{
-      font-size:52px;
-      margin-bottom:10px;
-    }
-
-    .hero p{
-      font-size:20px;
-      margin-bottom:20px;
-    }
-
-    .btn{
-      background:#ff4d6d;
-      color:white;
-      padding:14px 30px;
-      border:none;
-      border-radius:30px;
-      font-size:16px;
-      cursor:pointer;
-    }
-
-    .shipping{
-      background:#ff4d6d;
-      color:white;
-      text-align:center;
-      padding:15px;
-      font-size:22px;
-      font-weight:bold;
-    }
-
-    .products{
-      padding:50px;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:30px;
-    }
-
-    .card{
-      background:white;
-      border-radius:20px;
-      overflow:hidden;
-      box-shadow:0 5px 15px rgba(0,0,0,0.1);
-      transition:0.3s;
-    }
-
-    .card:hover{
-      transform:translateY(-5px);
-    }
-
-    .card img{
-      width:100%;
-      height:250px;
-      object-fit:cover;
-    }
-
-    .card-body{
-      padding:20px;
-    }
-
-    .card-body h3{
-      margin-bottom:10px;
-    }
-
-    .price{
-      color:#ff4d6d;
-      font-size:20px;
-      font-weight:bold;
-      margin-bottom:10px;
-    }
-
-    footer{
-      background:black;
-      color:white;
-      text-align:center;
-      padding:20px;
-      margin-top:50px;
-    }
-  </style>
+  .sticker{
+    display:inline-block;
+    background:red;
+    color:white;
+    padding:10px 20px;
+    border-radius:30px;
+    margin-left:10px;
+    font-size:25px;
+  }
+</style>
 </head>
+
 <body>
 
-  <header>
-    <div class="logo">SHOPPING</div>
+<div id="test-area"></div>
 
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Best</a>
-      <a href="#">New</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
+<script>
+  const variant = Math.random() < 0.5 ? "A" : "B";
 
-  <div class="shipping">
-    🚚 무료배송 EVENT 진행중
-  </div>
-
-  <section class="hero">
-    <h1>SUMMER SALE</h1>
-    <p>트렌디한 패션 아이템 모음</p>
-    <button class="btn">지금 쇼핑하기</button>
-  </section>
-
-  <section class="products">
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800" alt="">
-      <div class="card-body">
-        <h3>오프화이트 티셔츠</h3>
-        <div class="price">₩29,000</div>
-        <button class="btn">구매하기</button>
+  if(variant === "A"){
+    document.getElementById("test-area").innerHTML = `
+      <div class="banner">
+        무료배송
       </div>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800" alt="">
-      <div class="card-body">
-        <h3>스니커즈</h3>
-        <div class="price">₩59,000</div>
-        <button class="btn">구매하기</button>
+    `;
+  } else {
+    document.getElementById("test-area").innerHTML = `
+      <div class="banner">
+        무료배송
+        <span class="sticker">EVENT</span>
       </div>
-    </div>
+    `;
+  }
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=800" alt="">
-      <div class="card-body">
-        <h3>여성 자켓</h3>
-        <div class="price">₩89,000</div>
-        <button class="btn">구매하기</button>
-      </div>
-    </div>
-
-  </section>
-
-  <footer>
-    © 2026 무료배송 쇼핑몰
-  </footer>
+  console.log("Variant:", variant);
+</script>
 
 </body>
 </html>
