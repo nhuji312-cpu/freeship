@@ -1,219 +1,212 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cosmetic Shop</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vintage Mood Shop</title>
 
-<style>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Pretendard', sans-serif;
+    }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:sans-serif;
-}
+    body{
+      background:#f6efe7;
+      color:#3a2d28;
+    }
 
-body{
-  background:#fff5f7;
-}
+    .top-banner{
+      background:#d48b72;
+      color:white;
+      text-align:center;
+      padding:14px;
+      font-size:18px;
+      font-weight:700;
+      letter-spacing:-0.5px;
+    }
 
-header{
-  background:white;
-  padding:20px 50px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  box-shadow:0 2px 10px rgba(0,0,0,0.05);
-}
+    .hero{
+      padding:50px 20px 30px;
+      text-align:center;
+    }
 
-.logo{
-  font-size:30px;
-  font-weight:bold;
-  color:#ff4f81;
-}
+    .hero h1{
+      font-size:42px;
+      margin-bottom:12px;
+    }
 
-nav a{
-  text-decoration:none;
-  color:#333;
-  margin-left:20px;
-  font-weight:600;
-}
+    .hero p{
+      color:#7b6b63;
+      font-size:16px;
+    }
 
-.hero{
-  height:500px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  text-align:center;
-  background:linear-gradient(to bottom,#ffdce6,#fff5f7);
-}
+    .product-wrap{
+      width:90%;
+      max-width:1100px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:24px;
+      padding-bottom:60px;
+    }
 
-.hero h1{
-  font-size:60px;
-  color:#ff4f81;
-  margin-bottom:20px;
-}
+    .card{
+      background:white;
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      transition:0.3s;
+      position:relative;
+    }
 
-.hero p{
-  font-size:22px;
-  color:#555;
-  margin-bottom:30px;
-}
+    .card:hover{
+      transform:translateY(-6px);
+    }
 
-.btn{
-  border:none;
-  background:#ff4f81;
-  color:white;
-  padding:15px 35px;
-  border-radius:40px;
-  font-size:18px;
-  cursor:pointer;
-}
+    .card img{
+      width:100%;
+      height:300px;
+      object-fit:cover;
+    }
 
-.products{
-  padding:60px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:30px;
-}
+    .free-badge{
+      position:absolute;
+      top:14px;
+      left:14px;
+      background:#ff7f5f;
+      color:white;
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:700;
+    }
 
-.card{
-  background:white;
-  border-radius:25px;
-  overflow:hidden;
-  box-shadow:0 5px 20px rgba(0,0,0,0.08);
-  transition:0.3s;
-}
+    .content{
+      padding:20px;
+    }
 
-.card:hover{
-  transform:translateY(-5px);
-}
+    .title{
+      font-size:22px;
+      margin-bottom:10px;
+      font-weight:700;
+    }
 
-.card img{
-  width:100%;
-  height:280px;
-  object-fit:cover;
-}
+    .desc{
+      color:#7d726d;
+      font-size:14px;
+      line-height:1.6;
+      margin-bottom:16px;
+    }
 
-.card-body{
-  padding:20px;
-  text-align:center;
-}
+    .price{
+      font-size:24px;
+      font-weight:800;
+      margin-bottom:18px;
+    }
 
-.card-body h3{
-  margin-bottom:10px;
-}
+    .btn{
+      width:100%;
+      border:none;
+      background:#3d2e2a;
+      color:white;
+      padding:14px;
+      border-radius:14px;
+      font-size:15px;
+      cursor:pointer;
+      transition:0.3s;
+    }
 
-.price{
-  color:#ff4f81;
-  font-size:22px;
-  font-weight:bold;
-  margin-bottom:15px;
-}
+    .btn:hover{
+      background:#5b433d;
+    }
 
-.shipping{
-  position:fixed;
-  top:20px;
-  right:20px;
-  background:#ff4f81;
-  color:white;
-  padding:12px 20px;
-  border-radius:30px;
-  font-weight:bold;
-  box-shadow:0 5px 15px rgba(0,0,0,0.2);
-}
-
-footer{
-  background:#ff4f81;
-  color:white;
-  text-align:center;
-  padding:20px;
-  margin-top:40px;
-}
-
-</style>
+    footer{
+      text-align:center;
+      padding:30px;
+      color:#8b817c;
+      font-size:14px;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- A/B TEST -->
-<div id="shipping-test"></div>
-
-<header>
-  <div class="logo">Beauty Shop</div>
-
-  <nav>
-    <a href="#">BEST</a>
-    <a href="#">NEW</a>
-    <a href="#">EVENT</a>
-    <a href="#">CONTACT</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <h1>Glow Your Skin</h1>
-  <p>촉촉하고 빛나는 피부를 위한 뷰티 아이템</p>
-  <button class="btn">쇼핑하기</button>
-</section>
-
-<section class="products">
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1000" alt="">
-    <div class="card-body">
-      <h3>립스틱</h3>
-      <div class="price">₩19,000</div>
-      <button class="btn">구매하기</button>
-    </div>
+  <!-- TEST A -->
+  <div class="top-banner">
+    VINTAGE
   </div>
 
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=1000" alt="">
-    <div class="card-body">
-      <h3>쿠션 팩트</h3>
-      <div class="price">₩32,000</div>
-      <button class="btn">구매하기</button>
+  <section class="hero">
+    <h1>Vintage Mood</h1>
+    <p>
+      감성 빈티지 셀렉트샵 · 레트로 무드 아이템
+    </p>
+  </section>
+
+  <section class="product-wrap">
+
+    <div class="card">
+      <div class="free-badge">무료배송</div>
+
+      <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1200&auto=format&fit=crop" />
+
+      <div class="content">
+        <div class="title">Vintage Jacket</div>
+
+        <div class="desc">
+          90s 무드의 오버핏 빈티지 자켓
+        </div>
+
+        <div class="price">₩49,000</div>
+
+        <button class="btn">구매하기</button>
+      </div>
     </div>
-  </div>
 
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1000" alt="">
-    <div class="card-body">
-      <h3>스킨케어 세트</h3>
-      <div class="price">₩45,000</div>
-      <button class="btn">구매하기</button>
+    <div class="card">
+      <div class="free-badge">무료배송</div>
+
+      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop" />
+
+      <div class="content">
+        <div class="title">Retro Denim</div>
+
+        <div class="desc">
+          워싱 포인트가 매력적인 데님 팬츠
+        </div>
+
+        <div class="price">₩39,000</div>
+
+        <button class="btn">구매하기</button>
+      </div>
     </div>
-  </div>
 
-</section>
+    <div class="card">
+      <div class="free-badge">무료배송</div>
 
-<footer>
-  © 2026 Beauty Cosmetic Shop
-</footer>
+      <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1200&auto=format&fit=crop" />
 
-<script>
+      <div class="content">
+        <div class="title">Classic Bag</div>
 
-const variant = Math.random() < 0.5 ? "A" : "B";
+        <div class="desc">
+          빈티지 감성의 레더 숄더백
+        </div>
 
-if(variant === "A"){
-  document.getElementById("shipping-test").innerHTML = `
-    <div class="shipping">
-      무료배송
+        <div class="price">₩57,000</div>
+
+        <button class="btn">구매하기</button>
+      </div>
     </div>
-  `;
-}else{
-  document.getElementById("shipping-test").innerHTML = `
-    <div class="shipping">
-       무료배송
-    </div>
-  `;
-}
 
-console.log("AB TEST:", variant);
+  </section>
 
-</script>
+  <footer>
+    © 2026 Vintage Mood Store
+  </footer>
 
 </body>
 </html>
